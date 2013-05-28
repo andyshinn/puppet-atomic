@@ -1,5 +1,5 @@
 # Optional parameters in setting up EPEL
-class epel::params {
+class atomic::params {
   # Setting to 'absent' will fall back to the yum.conf
   # Setting proxy here will be the default for all repos.
   #
