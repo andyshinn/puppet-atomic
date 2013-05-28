@@ -1,6 +1,10 @@
 # Configure Atomicorp Free RPMS Repository
 A Puppet module to configure the Atomicorp Free RPMS Repository.
 
+## Dependencies
+
+* stdlib - https://forge.puppetlabs.com/puppetlabs/stdlib
+
 ## About
 This module is a fork of https://github.com/stahnma/puppet-module-epel rewritten for the Atomicorp Free RPMS Repository (http://www.atomicorp.com/installers/atomic)
 
