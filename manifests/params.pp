@@ -8,4 +8,5 @@ class atomic::params {
   #   the most specific declaration.
   $proxy       = 'absent'
   $includepkgs = 'absent'
+  $exclude     = 'absent'
 }

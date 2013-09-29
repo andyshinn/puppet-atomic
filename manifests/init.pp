@@ -11,7 +11,8 @@
 #
 class atomic (
               $proxy = $atomic::params::proxy,
-              $includepkgs = $atomic::params::includepkgs
+              $includepkgs = $atomic::params::includepkgs,
+              $exclude = $atomic::params::exclude
              ) inherits atomic::params {
 
   if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
@@ -26,6 +27,7 @@ class atomic (
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
+      exclude        => $exclude,
       enabled        => '0',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-atomic-${distrelease}",
@@ -39,6 +41,7 @@ class atomic (
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
+      exclude        => $exclude,
       enabled        => '0',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-atomic-${distrelease}",
@@ -51,6 +54,7 @@ class atomic (
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
+      exclude        => $exclude,
       enabled        => '1',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt",
