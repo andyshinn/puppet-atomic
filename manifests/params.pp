@@ -1,10 +1,11 @@
-# Optional parameters in setting up EPEL
+# Optional parameters in setting up Atomic Repo
 class atomic::params {
   # Setting to 'absent' will fall back to the yum.conf
-  # Setting proxy here will be the default for all repos.
+  # Settings here will be the default for all repos.
   #
-  #  If you wish to set a proxy for an individual set of repos,
-  #   you can declare $proxy in that class, and should scope to
-  #   the most specific declaration of proxy.
-  $proxy = 'absent'
+  #  If you wish to set a value for an individual set of repos,
+  #   you can declare the variable in that class, and should scope to
+  #   the most specific declaration.
+  $proxy       = 'absent'
+  $includepkgs = 'absent'
 }

@@ -9,7 +9,10 @@
 # Sample Usage:
 #  include atomic
 #
-class atomic ( $proxy = $atomic::params::proxy ) inherits atomic::params {
+class atomic (
+              $proxy = $atomic::params::proxy,
+              $includepkgs = $atomic::params::includepkgs
+             ) inherits atomic::params {
 
   if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
 
@@ -22,6 +25,7 @@ class atomic ( $proxy = $atomic::params::proxy ) inherits atomic::params {
       mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic-testing/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
+      includepkgs    => $includepkgs,
       enabled        => '0',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-atomic-${distrelease}",
@@ -34,6 +38,7 @@ class atomic ( $proxy = $atomic::params::proxy ) inherits atomic::params {
       mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic-bleeding/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
+      includepkgs    => $includepkgs,
       enabled        => '0',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-atomic-${distrelease}",
@@ -45,6 +50,7 @@ class atomic ( $proxy = $atomic::params::proxy ) inherits atomic::params {
       mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
+      includepkgs    => $includepkgs,
       enabled        => '1',
       gpgcheck       => '1',
       gpgkey         => "file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt",
