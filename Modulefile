@@ -1,4 +1,4 @@
-name    'ashinn-epel'
+name    'ashinn-atomic'
 version '0.0.1'
 source 'http://github.com/andyshinn/puppet-atomic'
 author 'andyshinn'
