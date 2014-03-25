@@ -23,7 +23,7 @@ class atomic (
 
     yumrepo { 'atomic-testing':
       baseurl        => absent,
-      mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic-testing/centos-${distrelease}-${::architecture}",
+      mirrorlist     => "http://updates.atomicorp.com/channels/mirrorlist/atomic-testing/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
@@ -37,7 +37,7 @@ class atomic (
 
     yumrepo { 'atomic-bleeding':
       baseurl        => absent,
-      mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic-bleeding/centos-${distrelease}-${::architecture}",
+      mirrorlist     => "http://updates.atomicorp.com/channels/mirrorlist/atomic-bleeding/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
@@ -50,7 +50,7 @@ class atomic (
 
     yumrepo { 'atomic':
       baseurl        => absent,
-      mirrorlist     => "http://www.atomicorp.com/mirrorlist/atomic/centos-${distrelease}-${::architecture}",
+      mirrorlist     => "http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-${distrelease}-${::architecture}",
       failovermethod => 'priority',
       proxy          => $proxy,
       includepkgs    => $includepkgs,
