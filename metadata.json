@@ -1,0 +1,68 @@
+{
+  "name": "andyshinn-atomic",
+  "version": "0.1.2",
+  "source": "http://github.com/andyshinn/puppet-atomic",
+  "author": "andyshinn",
+  "license": "Apache License, Version 2.0",
+  "summary": "Setup the Atomicorp Free RPM Repository",
+  "description": "Setup the Atomicorp Free RPM Repository on CentOS and RHEL variants",
+  "project_page": "http://github.com/andyshinn/puppet-atomic",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 3.0.1"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Modulefile": "df6836f5e162a1ffcec9bf8e21cc5dbd",
+    "README.md": "fd53c21834f650e565c21be4cbe8e422",
+    "files/RPM-GPG-KEY.art.txt": "5b01d7345f7cce5ce7e297744f640219",
+    "manifests/init.pp": "e0102d67de30018f3f7e60ae1bec3333",
+    "manifests/params.pp": "73badeca409e8eb591b17b1a423f2e4d",
+    "manifests/rpm_gpg_key.pp": "382e43c9eb328aed6f333f9df5b430c2",
+    "tests/init.pp": "7d8861b913c737667a4a66a549730d44"
+  },
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "2.7"
+    }
+  ]
+}
