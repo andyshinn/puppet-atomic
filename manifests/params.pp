@@ -3,13 +3,15 @@
 # Optional parameters in setting up Atomic Repo
 #
 class atomic::params {
-  # Setting to 'absent' will fall back to the yum.conf
-  # Settings here will be the default for all repos.
-  #
-  #  If you wish to set a value for an individual set of repos,
-  #   you can declare the variable in that class, and should scope to
-  #   the most specific declaration.
-  $proxy       = 'absent'
-  $includepkgs = 'absent'
-  $exclude     = 'absent'
+
+  if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
+    $mirrorlist         = "http://updates.atomicorp.com/channels/mirrorlist/atomic/centos-${::operatingsystemmajrelease}-${::architecture}"
+    $testing_mirrorlist = "http://updates.atomicorp.com/channels/mirrorlist/atomic-testing/centos-${::operatingsystemmajrelease}-${::architecture}"
+    $gpgkey             = 'https://www.atomicorp.com/RPM-GPG-KEY.art.txt https://www.atomicorp.com/RPM-GPG-KEY.atomicorp.txt'
+
+    $proxy              = 'absent'
+    $includepkgs        = 'absent'
+    $exclude            = 'absent'
+  }
+
 }
