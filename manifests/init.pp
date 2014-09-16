@@ -1,26 +1,28 @@
-# Class atomic
+# == Class: atomic
 #
 # Actions:
 #   Configure the proper repositories and import GPG keys
 #
 # Reqiures:
-#   You should probably be on an Enterprise Linux variant. (Centos, RHEL, Scientific, Oracle, Ascendos, et al)
+#   You should probably be on an Enterprise Linux variant. (Centos, RHEL,
+#   Scientific, Oracle, Ascendos, et al)
 #
 # Sample Usage:
 #  include atomic
 #
 class atomic (
-              $proxy = $atomic::params::proxy,
-              $includepkgs = $atomic::params::includepkgs,
-              $exclude = $atomic::params::exclude
-             ) inherits atomic::params {
+  $proxy       = $atomic::params::proxy,
+  $includepkgs = $atomic::params::includepkgs,
+  $exclude     = $atomic::params::exclude
+) inherits atomic::params {
 
   $gpgkeys = "file:///etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt
   file:///etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt"
 
   if $::osfamily == 'RedHat' and $::operatingsystem != 'Fedora' {
 
-    # This will be 5 or 6 on RedHat, 6 or wheezy on Debian, 12 or quantal on Ubuntu, etc.
+    # This will be 5 or 6 on RedHat, 6 or wheezy on Debian, 12 or quantal
+    # on Ubuntu, etc.
     $osr_array = split($::operatingsystemrelease,'[\/\.]')
     $distrelease = $osr_array[0]
 
@@ -64,32 +66,32 @@ class atomic (
       descr          => "CentOS / Red Hat Enterprise Linux ${distrelease} - atomicrocketturtle.com"
     }
 
-    file { "/etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt":
+    file { '/etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt':
       ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => "puppet:///modules/atomic/RPM-GPG-KEY.art.txt",
+      source => 'puppet:///modules/atomic/RPM-GPG-KEY.art.txt',
     }
 
-    file { "/etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt":
+    file { '/etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt':
       ensure => present,
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => "puppet:///modules/atomic/RPM-GPG-KEY.atomicorp.txt",
+      source => 'puppet:///modules/atomic/RPM-GPG-KEY.atomicorp.txt',
     }
 
-    atomic::rpm_gpg_key{ "art":
-      path => "/etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt"
+    atomic::rpm_gpg_key{ 'art':
+      path => '/etc/pki/rpm-gpg/RPM-GPG-KEY.art.txt'
     }
 
-    atomic::rpm_gpg_key{ "atomicorp":
-      path => "/etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt"
+    atomic::rpm_gpg_key{ 'atomicorp':
+      path => '/etc/pki/rpm-gpg/RPM-GPG-KEY.atomicorp.txt'
     }
 
   } else {
-      notice ("Your operating system ${::operatingsystem} will not have the atomic repository applied")
+    notice ("Your operating system ${::operatingsystem} will not have the atomic repository applied")
   }
 
 
