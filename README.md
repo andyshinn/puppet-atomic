@@ -15,7 +15,6 @@ The following Repos will be setup and enabled by default:
 Other repositories that will setup but disabled by default:
 
   * atomic-testing
-  * atomic-bleeding
 
 ### Variables
 

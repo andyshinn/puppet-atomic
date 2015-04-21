@@ -1,2 +1,25 @@
-pkg
-.DS_Store
+# IDE related
+.idea
+.project
+
+# Testing and development
+.vagrant
+.rspec_system/
+/Vagrantfile
+coverage/
+
+# Ruby and RVM
+.ruby-version
+.rvmrc
+
+# Bundler
+.bundle/
+Gemfile.lock
+
+# Puppet module generated
+metadata.json
+pkg/
+
+# RSpec fixtures
+spec/fixtures/modules
+spec/fixtures/manifests
